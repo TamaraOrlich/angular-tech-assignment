@@ -1,0 +1,90 @@
+.card {
+    max-width: 220px;
+    width: 100%;
+    border: 1px solid #e3e3e3;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    .image {
+        object-fit: cover;
+        border-top-right-radius: 16px;
+        border-top-left-radius: 16px;
+        cursor: pointer;
+    }
+    .text-container {
+        padding: 16px;
+        .title {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            cursor: pointer;
+        }
+        &:hover {
+            color: rgb(1, 180, 228);
+        }
+        .release-date {
+            font-size: 12px;
+            font-weight: 300;
+            color: rgba(0, 0, 0, .6);
+            margin: 0px;
+            margin-bottom: 2px;
+        }
+        .popularity {
+            font-size: 12px;
+            font-weight: 300;
+            margin: 0px;
+            color: rgba(0, 0, 0, .6);
+            b {
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+.card-list {
+    display: flex;
+    border: 1px solid #e3e3e3;
+    border-radius: 16px;
+    max-height: 141px;
+    height: 100%;
+    justify-content: flex-start;
+    width: 100%;
+    cursor: pointer;
+    .image {
+        object-fit: contain;
+        object-position: center;
+        border-bottom-left-radius: 16px;
+        border-top-left-radius: 16px;
+        margin-right: 8px;
+    }
+    .text-container {
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        .title {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0;
+            margin-bottom: 12px;
+        }
+        .release-date {
+            font-size: 16px;
+            color: #999;
+            margin: 0px;
+        }
+        .overview {
+            margin: 0px;
+            margin-top: 20px;
+            font-size: 14px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+    }
+}

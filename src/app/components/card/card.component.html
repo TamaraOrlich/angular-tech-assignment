@@ -1,0 +1,16 @@
+<div *ngIf="!isList" class="card">
+    <img (click)="goToDetail(movie.id)" class="image" [src]="'https://www.themoviedb.org/t/p/w220_and_h330_face/'+movie.poster_path" alt="Movie poster">
+    <div class="text-container">
+        <p (click)="goToDetail(movie.id)" class="title">{{movie.title}}</p>
+        <p class="release-date">{{movie.release_date | date:'dd MMM, YYYY'}}</p>
+        <p class="popularity"><b>Popularity:</b> {{movie.popularity}}</p>
+    </div>
+</div>
+<div *ngIf="isList" class="card-list" (click)="goToDetail(movie.id)">
+    <img class="image" [src]="'https://www.themoviedb.org/t/p/w220_and_h330_face/'+movie.poster_path" alt="Movie poster">
+    <div class="text-container">
+        <p class="title">{{movie.title}}</p>
+        <p class="release-date">{{movie.release_date | date:'dd MMM, YYYY'}}</p>
+        <p class="overview">{{movie.overview}}</p>
+    </div>
+</div>
