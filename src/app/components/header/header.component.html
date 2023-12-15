@@ -1,0 +1,19 @@
+<header class="header">
+    <div class="header-container">
+        <img class="logo" src="assets/logo.svg" alt="Logo">
+        <div class="right-container">
+            <div class="searchbar">
+                <input type="text" [(ngModel)]="searchText" (keyup)="search($event)" id="name" placeholder="Search" />
+                <button *ngIf="searchText !== ''" (click)="deleteSearch()" type="button" class="cross-button">
+                    <img class="cross-icon" src="assets/cross.png" alt="Cross icon">
+                </button>
+            </div>
+            <button class="login-button" type="button" (click)="login()">Login</button>
+        </div>
+    </div>
+</header>
+<div *ngIf="(movies$ | async)?.results" class="searched-movies">
+    <div *ngFor="let movie of (movies$ | async)?.results">
+        <app-card [isList]="true" [movie]="movie" style="width: 100%;"></app-card>
+    </div>
+</div>

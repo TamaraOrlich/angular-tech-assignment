@@ -1,0 +1,93 @@
+.header {
+    padding: 16px;
+    background-color: rgb(3, 37, 65);
+    position: fixed;
+    top: 0px;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    .header-container {
+        max-width: 1400px;
+        margin-right: auto;
+        margin-left: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .logo {
+            width: 154px;
+            object-fit: contain;
+        }
+        .right-container {
+            display: flex;
+            .searchbar {
+                position: relative;
+                display: flex;
+                input {
+                    max-width: 800px;
+                    border-radius: 8px;
+                    padding: 8px 44px;
+                    outline: none;
+                    margin-right: 24px;
+                    border: 2px solid #e3e3e3;
+                    color: white;
+                    background-color: transparent !important;
+                    background-image: url(/assets/search-white.png);
+                    background-position: left center;
+                    background-size: 20px;
+                    background-position-x: 10px;
+                    background-repeat: no-repeat;
+                }
+                .cross-button {
+                    position: absolute;
+                    right: 40px;
+                    top: 0px;
+                    bottom: 0px;
+                    display: flex;
+                    height: auto;
+                    align-items: center;
+                    background: transparent;
+                    outline: none;
+                    border: none;
+                    cursor: pointer;
+                    .cross-icon {
+                        width: 18px;
+                        object-fit: contain;
+                    }
+                }
+            }
+            .login-button {
+                color: rgb(1, 180, 228);
+                background-color: transparent;
+                border: 1px rgb(1, 180, 228) solid;
+                border-radius: 8px;
+                padding: 8px 24px;
+                cursor: pointer;
+                outline: none;
+                &:hover {
+                    color: rgb(3, 37, 65);
+                    background-color: rgb(1, 180, 228);
+                }
+            }
+        }
+    }
+}
+
+.searched-movies {
+    position: fixed;
+    top: 0px;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 67px;
+    padding-top: 20px;
+    padding-right: 16px;
+    padding-left: 16px;
+    padding-bottom: 40px;
+    overflow-y: scroll;
+    max-height: 80vh;
+    div {
+        display: flex;
+    }
+}
