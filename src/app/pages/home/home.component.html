@@ -1,0 +1,10 @@
+<app-header></app-header>
+<div class="body">
+    <h1>Popular movies</h1>
+    <div class="card-container">
+        <div *ngFor="let movie of (movies$ | async)?.results">
+            <app-card [movie]="movie"></app-card>
+        </div>
+    </div>
+    <button class="button" *ngIf="this.page != (movies$ | async)?.total_pages" (click)="seeMoreMovies()">See more movies</button>
+</div>
