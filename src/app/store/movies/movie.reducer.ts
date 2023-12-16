@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
-import { setPopularMovies, setSearchedMovies } from './movies.action';
-import { MoviesResponseData } from '../../models/movie';
+import { clearSearchedMovies, setMovieDetail, setPopularMovies, setSearchedMovies } from './movies.action';
+import { Movie, MoviesResponseData } from '../../models/movie';
 
 export const popularMovies: MoviesResponseData = {
     page: 1,
@@ -39,5 +39,23 @@ export const searchedMoviesReducer = createReducer(
             total_pages: searchedMovies.total_pages,
             total_results: searchedMovies.total_results
         }
+    }),
+    on(clearSearchedMovies, (state) => {
+        return {
+            ...state,
+            page: 1,
+            results: [],
+            total_pages: 1,
+            total_results: 0
+        }
+    }),
+)
+
+export const movieDetail: Movie | null = null;
+
+export const movieDetailReducer = createReducer<Movie | null>(
+    movieDetail,
+    on(setMovieDetail, (state, { movieDetail }) => {
+        return movieDetail;
     })
 )

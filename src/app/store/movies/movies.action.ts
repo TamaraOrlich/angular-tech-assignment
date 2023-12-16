@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { MoviesResponseData } from '../../models/movie';
+import { Movie, MoviesResponseData } from '../../models/movie';
 
 export const getPopularMovies = createAction(
   '[Movies] Get popular movies',
@@ -19,4 +19,16 @@ export const getSearchedMovies = createAction(
 export const setSearchedMovies = createAction(
   '[Movies] Set searched movies',
   props<{ searchedMovies: MoviesResponseData }>()
+);
+
+export const clearSearchedMovies = createAction('[Movies] Clear Searched Movies');
+
+export const getMovieDetail = createAction(
+  '[Movie] Get movie detail',
+  props<{ id: number }>()
+);
+
+export const setMovieDetail = createAction(
+  '[Movie] Set movie detail',
+  props<{ movieDetail: Movie }>()
 );

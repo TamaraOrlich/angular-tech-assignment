@@ -8,7 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { MoviesEffect } from './store/movies/movie.effect';
-import { popularMoviesReducer, searchedMoviesReducer } from './store/movies/movie.reducer';
+import { movieDetailReducer, popularMoviesReducer, searchedMoviesReducer } from './store/movies/movie.reducer';
 
 
 @NgModule({
@@ -22,7 +22,8 @@ import { popularMoviesReducer, searchedMoviesReducer } from './store/movies/movi
     StoreModule.forRoot(
       {
         popularMovies: popularMoviesReducer,
-        searchedMovies: searchedMoviesReducer
+        searchedMovies: searchedMoviesReducer,
+        movieDetail: movieDetailReducer
       },
       {}
     ),
