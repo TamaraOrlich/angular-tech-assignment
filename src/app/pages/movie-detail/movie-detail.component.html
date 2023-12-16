@@ -13,7 +13,7 @@
             </span>
             <span class="rating">
                 <p *ngIf="movie.vote_average" class="text-xl">User score: {{movie.vote_average / 10 | percent}} </p>
-                <app-star-rating></app-star-rating>
+                <app-star-rating (ratingValue)="getRating($event)"></app-star-rating>
             </span>
             <p *ngIf="movie.tagline" class="tagline text-lg">{{movie.tagline}}</p>
             <h3 *ngIf="movie.overview" class="overview-title text-xl">Overview</h3>

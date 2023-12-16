@@ -39,4 +39,8 @@ export class MovieDetailComponent implements OnInit {
     return Math.floor(runtime / 60) + 'h ' + runtime % 60 + 'min';
   }
 
+  getRating(event: number) {
+    console.log(event)
+  }
+
 }

@@ -1,0 +1,13 @@
+.star-rating-container {
+    display: inline-flex;
+    &:hover svg {
+        fill: #eec407;
+        stroke: #eec407;
+        &:hover~svg {
+            fill: transparent;
+        }
+    }
+    svg.active {
+        fill: #eec407;
+    }
+}
