@@ -42,4 +42,8 @@ export class HeaderComponent {
     this.searchText = '';
     this.searchTextChanged.next('');
   }
+
+  goToHome() {
+    this.router.navigate([''])
+  }
 }

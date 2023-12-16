@@ -1,6 +1,6 @@
 <header class="header">
     <div class="header-container">
-        <img class="logo" src="assets/logo.svg" alt="Logo">
+        <img (click)="goToHome()" class="logo" src="assets/logo.svg" alt="Logo">
         <div class="right-container">
             <div class="searchbar">
                 <input type="text" [(ngModel)]="searchText" (keyup)="search($event)" id="name" placeholder="Search" />
@@ -12,8 +12,10 @@
         </div>
     </div>
 </header>
-<div *ngIf="(movies$ | async)?.results" class="searched-movies">
-    <div *ngFor="let movie of (movies$ | async)?.results">
-        <app-card [isList]="true" [movie]="movie" style="width: 100%;"></app-card>
+<div *ngIf="(movies$ | async) as movies" class="searched-movies">
+    <div *ngIf="movies.total_results > 0" class="searched-movies-container">
+        <div *ngFor="let movie of movies.results">
+            <app-card [isList]="true" [movie]="movie" style="width: 100%;"></app-card>
+        </div>
     </div>
 </div>
