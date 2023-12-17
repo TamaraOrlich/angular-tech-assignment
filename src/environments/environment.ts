@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  apiKey: '7d56db113121ee643393eac20e0eb9f2'
+  imdbApiKey: '7d56db113121ee643393eac20e0eb9f2',
+  email: 'info@2coders.com',
+  password: 'password'
 };
 
 /*

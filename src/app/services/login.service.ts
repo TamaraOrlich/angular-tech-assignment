@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserModel } from '../models/auth';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,10 @@ export class LoginService {
 
   login(email: string, password: string): Promise<UserModel> {
     return new Promise((resolve, reject) => {
-      if (email === 'info@2coders.com' && password === 'password') {
+      if (email === environment.email && password === environment.password) {
         resolve({ email: email } as UserModel);
       } else {
-        reject(new Error('Invalid credentials'))
+        reject(new Error('Invalid credentials'));
       }
     });
   }
