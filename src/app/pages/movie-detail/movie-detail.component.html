@@ -13,7 +13,7 @@
             </span>
             <span class="rating">
                 <p *ngIf="movie.vote_average" class="text-xl">User score: {{movie.vote_average / 10 | percent}} </p>
-                <app-star-rating (ratingValue)="getRating($event)"></app-star-rating>
+                <app-star-rating *ngIf="(userAuth$ | async) !== null" [rating]="(rating$ | async) ?? 0" (ratingValue)="getRating($event)"></app-star-rating>
             </span>
             <p *ngIf="movie.tagline" class="tagline text-lg">{{movie.tagline}}</p>
             <h3 *ngIf="movie.overview" class="overview-title text-xl">Overview</h3>
@@ -24,6 +24,7 @@
                 <p *ngIf="movie.original_language" class="original-language"><b>Original Language:</b> {{movie.original_language}}</p>
             </div>
         </div>
-        <div class="background"></div>
+        <div class="linear-gradient"></div>
     </div>
 </div>
+<div class="background"></div>

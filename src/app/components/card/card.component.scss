@@ -25,7 +25,7 @@
             cursor: pointer;
         }
         &:hover {
-            color: rgb(1, 180, 228);
+            color: var(--lightBlue);
         }
         .release-date {
             font-size: 12px;

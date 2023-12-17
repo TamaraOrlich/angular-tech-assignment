@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '_reset.scss';
+:root {
+    --lightBlue: rgb(1, 180, 228);
+    --darkBlue: rgb(3, 37, 65);
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0px;

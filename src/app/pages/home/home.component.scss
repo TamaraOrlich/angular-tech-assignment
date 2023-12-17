@@ -19,13 +19,13 @@
 .button {
     margin-top: 30px;
     color: white;
-    background-color: rgb(1, 180, 228);
+    background-color: var(--lightBlue);
     border: none;
     border-radius: 8px;
     padding: 8px 24px;
     cursor: pointer;
     outline: none;
     &:hover {
-        color: rgb(3, 37, 65);
+        color: var(--darkBlue);
     }
 }

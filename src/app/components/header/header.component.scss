@@ -1,6 +1,6 @@
 .header {
     padding: 16px;
-    background-color: rgb(3, 37, 65);
+    background-color: var(--darkBlue);
     position: fixed;
     top: 0px;
     width: 100%;
@@ -60,17 +60,27 @@
                 }
             }
             .login-button {
-                color: rgb(1, 180, 228);
+                color: var(--lightBlue);
                 background-color: transparent;
-                border: 1px rgb(1, 180, 228) solid;
+                border: 1px var(--lightBlue) solid;
                 border-radius: 8px;
                 padding: 8px 24px;
                 cursor: pointer;
                 outline: none;
                 &:hover {
-                    color: rgb(3, 37, 65);
-                    background-color: rgb(1, 180, 228);
+                    color: var(--darkBlue);
+                    background-color: var(--lightBlue);
                 }
+            }
+            .profile-avatar {
+                width: 36px;
+                height: 36px;
+                background: var(--lightBlue);
+                border-radius: 100%;
+                color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
         }
     }
@@ -80,10 +90,11 @@
     position: fixed;
     top: 0px;
     width: 100%;
-    background: white;
+    background: rgb(0, 0, 0, 0.2);
     margin-top: 67px;
     overflow-y: scroll;
     z-index: 10;
+    height: 100vh;
     .searched-movies-container {
         display: flex;
         flex-direction: column;
@@ -93,6 +104,9 @@
         padding-left: 16px;
         padding-bottom: 40px;
         max-height: 80vh;
+        overflow: scroll;
+        background-color: white;
+        border-radius: 0px 0px 24px 24px;
         div {
             display: flex;
         }

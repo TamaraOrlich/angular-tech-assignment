@@ -5,6 +5,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { getSearchedMovies } from '../../store/movies/movies.action';
 import { MoviesResponseData } from '../../models/movie';
+import { UserModel } from '../../models/auth';
 
 @Component({
   selector: 'app-header',
@@ -14,13 +15,17 @@ import { MoviesResponseData } from '../../models/movie';
 export class HeaderComponent {
   searchTextChanged = new Subject<string>();
   searchText: string = '';
-  movies$: Observable<MoviesResponseData>;
+  movies$: Observable<MoviesResponseData | null>;
+  userAuth$: Observable<string>;
+
 
   constructor(
     private router: Router,
     private store: Store) {
     //@ts-ignore
-    this.movies$ = store.select('searchedMovies')
+    this.movies$ = store.select('searchedMovies');
+    //@ts-ignore
+    this.userAuth$ = store.select('email');
     this.searchTextChanged.pipe(
       debounceTime(300),
       distinctUntilChanged())
@@ -32,6 +37,10 @@ export class HeaderComponent {
 
   login() {
     this.router.navigate(['/login'])
+  }
+
+  isLoginRoute() {
+    return this.router.url.includes('login');
   }
 
   search(ev: any) {
