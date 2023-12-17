@@ -1,0 +1,19 @@
+.input-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    label {
+        color: white;
+        margin-bottom: 2px;
+    }
+    input {
+        max-width: 800px;
+        width: 100%;
+        border-radius: 8px;
+        padding: 8px 12px;
+        outline: none;
+        border: 2px solid #e3e3e3;
+        color: #e3e3e3;
+        background-color: transparent !important;
+    }
+}

@@ -1,0 +1,4 @@
+<div class="input-container">
+    <label class="text-sm" [for]="label">{{label}}</label>
+    <input class="text-sm" [type]="type" [name]="label" [(ngModel)]="text" (ngModelChange)="emitValue()">
+</div>
