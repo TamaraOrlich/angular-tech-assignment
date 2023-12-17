@@ -4,6 +4,7 @@ import { HeaderComponent } from './header.component';
 import { CardModule } from '../card/card.module';
 import { FormsModule } from '@angular/forms';
 import { ToastModule } from '../toast/toast.module';
+import { SearchbarModule } from '../searchbar/searchbar.module';
 
 
 
@@ -13,7 +14,8 @@ import { ToastModule } from '../toast/toast.module';
     CommonModule,
     FormsModule,
     ToastModule,
-    CardModule
+    CardModule,
+    SearchbarModule
   ],
   exports: [HeaderComponent]
 })

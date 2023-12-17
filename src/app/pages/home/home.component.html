@@ -1,8 +1,8 @@
 <app-header></app-header>
 <div class="body">
-    <h1>Popular movies</h1>
+    <h1 class="text-4xl title">Popular movies</h1>
     <div class="card-container">
-        <div *ngFor="let movie of (movies$ | async)?.results">
+        <div *ngFor="let movie of (movies$ | async)?.results" class="cards">
             <app-card [movie]="movie"></app-card>
         </div>
     </div>

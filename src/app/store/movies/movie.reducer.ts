@@ -27,12 +27,16 @@ export const searchedMovies: MoviesResponseData | null = null;
 export const searchedMoviesReducer = createReducer<MoviesResponseData | null>(
     searchedMovies,
     on(setSearchedMovies, (state, { searchedMovies }) => {
-        return {
-            ...state,
-            page: searchedMovies.page,
-            results: searchedMovies.results,
-            total_pages: searchedMovies.total_pages,
-            total_results: searchedMovies.total_results
+        if (searchedMovies.results.length > 0) {
+            return {
+                ...state,
+                page: searchedMovies.page,
+                results: searchedMovies.results,
+                total_pages: searchedMovies.total_pages,
+                total_results: searchedMovies.total_results
+            }
+        } else {
+            return null;
         }
     }),
     on(clearSearchedMovies, (state) => {

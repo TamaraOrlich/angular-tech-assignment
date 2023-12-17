@@ -2,18 +2,14 @@
     <div class="header-container">
         <img (click)="goToHome()" class="logo" src="assets/logo.svg" alt="Logo">
         <div class="right-container">
-            <div class="searchbar" *ngIf="!isLoginRoute()">
-                <input type="text" [(ngModel)]="searchText" (keyup)="search($event)" id="name" placeholder="Search" />
-                <button *ngIf="searchText !== ''" (click)="deleteSearch()" type="button" class="cross-button">
-                    <img class="cross-icon" src="assets/cross.png" alt="Cross icon">
-                </button>
-            </div>
-            <button *ngIf="(userAuth$ | async) === null" class="login-button" type="button" (click)="login()">Login</button>
+            <app-searchbar *ngIf="!isLoginRoute()" class="show-hide"></app-searchbar>
+            <button *ngIf="(userAuth$ | async) === null && !isLoginRoute()" class="login-button" type="button" (click)="login()">Login</button>
             <span *ngIf="(userAuth$ | async) !== null" class="profile-avatar">
                 <p class="text-lg">{{(userAuth$ | async)?.charAt(0) | uppercase}}</p>
             </span>
         </div>
     </div>
+    <app-searchbar *ngIf="!isLoginRoute()" class="hide-show" style="width: 100%;"></app-searchbar>
 </header>
 <div *ngIf="(movies$ | async) as movies" class="searched-movies">
     <div *ngIf="movies.total_results > 0" class="searched-movies-container">
