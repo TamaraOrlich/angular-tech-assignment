@@ -1,0 +1,3 @@
+<div class="error-banner text-lg" [ngClass]="{ 'successful-colors': (bannerMessage$ | async) && (bannerMessage$|async)?.isSuccessful, 'error-colors': (bannerMessage$ | async) && !(bannerMessage$|async)?.isSuccessful, 'show': (bannerMessage$ | async)}">
+    <p *ngIf="bannerMessage$ | async as bannerMessage">{{ bannerMessage.message }}</p>
+</div>

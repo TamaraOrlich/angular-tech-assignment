@@ -1,0 +1,26 @@
+.error-banner {
+    display: flex;
+    padding: 20px 32px;
+    position: fixed;
+    top: -80px;
+    width: 100%;
+    z-index: 20;
+    border-radius: 0px 0px 16px 16px;
+    transition: top 0.5s ease-in-out;
+}
+
+.error-colors {
+    background: #fca5a5;
+    border: 1px #ef4444 solid;
+    color: #450a0a;
+}
+
+.successful-colors {
+    background: #86efac;
+    border: 1px #22c55e solid;
+    color: #052e16;
+}
+
+.error-banner.show {
+    top: 0;
+}
