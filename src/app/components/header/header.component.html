@@ -1,6 +1,6 @@
 <header class="header">
     <div class="header-container">
-        <img (click)="goToHome()" class="logo" src="assets/logo.svg" alt="Logo">
+        <img (click)="goToHome()" class="logo" src="assets/logo.svg" alt="Logo" loading="lazy">
         <div class="right-container">
             <app-searchbar *ngIf="!isLoginRoute()" class="show-hide"></app-searchbar>
             <button *ngIf="(userAuth$ | async) === null && !isLoginRoute()" class="login-button" type="button" (click)="login()">Login</button>

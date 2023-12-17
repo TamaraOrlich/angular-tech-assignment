@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../../services/login.service';
 import { Store } from '@ngrx/store';
 import { getUser } from '../../store/authentication/auth.action';
 import { Observable } from 'rxjs';

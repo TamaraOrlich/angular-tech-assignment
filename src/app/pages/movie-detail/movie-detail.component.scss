@@ -20,6 +20,10 @@
             width: 30%;
             flex-shrink: 0;
             border-radius: 8px;
+            transition: transform 1.5s;
+            &:hover {
+                transform: rotateY(360deg);
+            }
         }
         .right-container {
             color: white;

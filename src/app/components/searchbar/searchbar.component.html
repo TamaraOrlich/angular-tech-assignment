@@ -1,6 +1,6 @@
 <div class="searchbar">
-    <input type="text" [(ngModel)]="searchText" (keyup)="search($event)" id="name" placeholder="Search" />
+    <input type="text" id="searchbar" [(ngModel)]="searchText" (keyup)="search($event)" id="name" placeholder="Search" />
     <button *ngIf="searchText !== ''" (click)="deleteSearch()" type="button" class="cross-button">
-        <img class="cross-icon" src="assets/cross.png" alt="Cross icon">
+        <img class="cross-icon" src="assets/cross.png" alt="Cross icon" loading="lazy">
     </button>
 </div>

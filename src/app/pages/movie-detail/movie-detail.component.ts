@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
-import { ApiService } from '../../services/api.service';
+import { ActivatedRoute } from '@angular/router';
 import { Store, createSelector } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Movie } from '../../models/movie';

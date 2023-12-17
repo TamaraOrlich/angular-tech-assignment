@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div *ngIf="(movie$ | async) as movie" class="body-movie-detail">
     <div class="poster" style="background-image: url('https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/{{movie.backdrop_path}}');">
-        <img class="poster-image z-1" [src]="'https://www.themoviedb.org/t/p/w220_and_h330_face/'+movie.poster_path" alt="Poster movie">
+        <img class="poster-image z-1" [src]="'https://www.themoviedb.org/t/p/w220_and_h330_face/'+movie.poster_path" alt="Poster movie" loading="lazy">
         <div class="right-container z-1">
             <h1 class="text-4xl">{{movie.title}}</h1>
             <span *ngIf="movie.genres" class="genres text-sm">
@@ -16,7 +16,7 @@
                 <app-star-rating *ngIf="(userAuth$ | async) !== null" [rating]="(rating$ | async) ?? 0" (ratingValue)="getRating($event)"></app-star-rating>
             </span>
             <p *ngIf="movie.tagline" class="tagline text-lg">{{movie.tagline}}</p>
-            <h3 *ngIf="movie.overview" class="overview-title text-xl">Overview</h3>
+            <p *ngIf="movie.overview" class="overview-title text-xl">Overview</p>
             <p *ngIf="movie.overview" class="overview-content text-lg">{{movie.overview}}</p>
             <div class="more-info text-lg">
                 <p *ngIf="movie.homepage" class="homepage"><b>Homepage: </b> <a href="{{movie.homepage}}">{{movie.homepage}}</a></p>
