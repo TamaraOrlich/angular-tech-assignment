@@ -2,16 +2,16 @@ import { Component, Input } from '@angular/core';
 import { Movie } from '../../models/movie';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { clearSearchedMovies } from '../../store/movies/movies.action';
+import { clearPopularMovies, clearSearchedMovies } from '../../store/movies/movies.action';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrl: './card.component.scss'
+  selector: 'app-list-card',
+  templateUrl: './list-card.component.html',
+  styleUrl: './list-card.component.scss'
 })
-export class CardComponent {
+export class ListCardComponent {
+
   @Input() movie!: Movie;
-  @Input() isList: boolean = false;
 
   constructor(
     private router: Router,
@@ -20,6 +20,7 @@ export class CardComponent {
   goToDetail(id: number) {
     this.router.navigate(['detail/' + id]);
     this.store.dispatch(clearSearchedMovies());
+    this.store.dispatch(clearPopularMovies());
   }
 
 }
