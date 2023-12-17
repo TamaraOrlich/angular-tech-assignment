@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesResponseData } from '../../models/movie';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-import { getPopularMovies } from '../../store/movies/movies.action';
+import { clearPopularMovies, getPopularMovies } from '../../store/movies/movies.action';
+import { selectPopularMovies } from '../../store/movies/movie.selector';
+import { Event, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -15,19 +17,19 @@ export class HomeComponent implements OnInit {
   page: number = 1;
 
   constructor(
-    private router: Router,
-    private store: Store) {
-    //@ts-ignore
-    this.movies$ = store.select('popularMovies');
+    private store: Store,
+    private router: Router
+  ) {
+    this.movies$ = store.select(selectPopularMovies);
   }
 
   ngOnInit(): void {
     this.page = 1;
-    this.store.dispatch(getPopularMovies({ page: this.page }))
+    this.store.dispatch(getPopularMovies({ page: this.page }));
   }
 
   seeMoreMovies() {
     this.page = this.page + 1;
-    this.store.dispatch(getPopularMovies({ page: this.page }))
+    this.store.dispatch(getPopularMovies({ page: this.page }));
   }
 }

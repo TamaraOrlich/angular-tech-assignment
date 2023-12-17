@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { MoviesResponseData } from '../../models/movie';
+import { selectSearchedMovies } from '../../store/movies/movie.selector';
+import { clearPopularMovies } from '../../store/movies/movies.action';
 
 @Component({
   selector: 'app-header',
@@ -17,15 +19,15 @@ export class HeaderComponent {
   constructor(
     private router: Router,
     private store: Store) {
-    //@ts-ignore
-    this.movies$ = store.select('searchedMovies');
-    //@ts-ignore
+    this.movies$ = store.select(selectSearchedMovies);
+    //@ts-expect-error
     this.userAuth$ = store.select('email');
   }
 
 
   login() {
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login']);
+    this.store.dispatch(clearPopularMovies());
   }
 
   isLoginRoute() {
@@ -33,6 +35,6 @@ export class HeaderComponent {
   }
 
   goToHome() {
-    this.router.navigate([''])
+    this.router.navigate(['']);
   }
 }
