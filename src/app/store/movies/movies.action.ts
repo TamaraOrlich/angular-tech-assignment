@@ -32,3 +32,13 @@ export const setMovieDetail = createAction(
   '[Movie] Set movie detail',
   props<{ movieDetail: Movie }>()
 );
+
+export const getRatedMOvie = createAction(
+  '[Movie] Get rated movie',
+  props<{ movieId: number }>()
+);
+
+export const setMovieRating = createAction(
+  '[Movie] Set Movie Rating',
+  props<{ movieId: number, rating: number }>()
+);

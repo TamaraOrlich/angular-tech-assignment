@@ -1,5 +1,11 @@
 .star-rating-container {
     display: inline-flex;
+    cursor: pointer;
+    .rate {
+        color: white;
+        padding-right: 2px;
+        padding-left: 8px;
+    }
     &:hover svg {
         fill: #eec407;
         stroke: #eec407;

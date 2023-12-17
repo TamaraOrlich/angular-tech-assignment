@@ -3,8 +3,9 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { ApiService } from "../../services/api.service";
 import { getMovieDetail, getPopularMovies, getSearchedMovies, setMovieDetail, setPopularMovies, setSearchedMovies } from "./movies.action";
 import { Observable, map, switchMap, of, EMPTY } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, delay } from 'rxjs/operators';
 import { MoviesResponseData } from "../../models/movie";
+import { resetToast, showToast } from "../toastManager/toast.action";
 
 @Injectable()
 export class MoviesEffect {
@@ -24,8 +25,7 @@ export class MoviesEffect {
             setPopularMovies({ popularMovies: response })
           ),
           catchError((error) => {
-            console.error(error);
-            return EMPTY;
+            return of(showToast({ message: error.message }));;
           })
         );
       })
@@ -39,8 +39,7 @@ export class MoviesEffect {
         this.apiService.getSearchedMovies(query).pipe(
           map(response => setSearchedMovies({ searchedMovies: response })),
           catchError((error) => {
-            console.error(error);
-            return EMPTY;
+            return of(showToast({ message: error.message }));;
           })
         ),
       )
@@ -54,11 +53,11 @@ export class MoviesEffect {
         this.apiService.getMovieDetail(id).pipe(
           map(response => setMovieDetail({ movieDetail: response })),
           catchError((error) => {
-            console.error(error);
-            return EMPTY;
+            return of(showToast({ message: error.message }));;
           })
         ),
       )
     )
   );
+
 }

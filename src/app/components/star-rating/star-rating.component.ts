@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-star-rating',
@@ -6,7 +6,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './star-rating.component.scss'
 })
 export class StarRatingComponent {
-  rating: number = 0;
+  @Input() rating: number = 0;
 
   @Output() ratingValue = new EventEmitter<number>();
 
