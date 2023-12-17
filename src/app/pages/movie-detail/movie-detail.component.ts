@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store, createSelector } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Movie } from '../../models/movie';
 import { getMovieDetail, setMovieRating } from '../../store/movies/movies.action';
 import { showToast } from '../../store/toastManager/toast.action';
+import { selectMovieDetail } from '../../store/movies/movie.selector';
 
 const selectMovieRating = createSelector(
   (state: any) => state.movieRating,
@@ -16,7 +17,7 @@ const selectMovieRating = createSelector(
   templateUrl: './movie-detail.component.html',
   styleUrls: ['./movie-detail.component.scss']
 })
-export class MovieDetailComponent implements OnInit {
+export class MovieDetailComponent {
 
   id!: number;
   movie$: Observable<Movie>;
@@ -30,20 +31,15 @@ export class MovieDetailComponent implements OnInit {
     this.route.params.subscribe((param) => {
       this.id = Number(param['id']);
       this.getMovieInfo();
-    })
-    //@ts-ignore
+    });
+    //@ts-expect-error
     this.userAuth$ = store.select('email');
-    //@ts-ignore
-    this.movie$ = this.store.select('movieDetail')
-    //@ts-ignore
-    this.rating$ = this.store.select(selectMovieRating, { movieId: this.id });
-  }
-
-  ngOnInit(): void {
+    this.movie$ = store.select(selectMovieDetail);
+    this.rating$ = store.select(selectMovieRating, { movieId: this.id });
   }
 
   getMovieInfo() {
-    this.store.dispatch(getMovieDetail({ id: this.id }))
+    this.store.dispatch(getMovieDetail({ id: this.id }));
   }
 
   getRuntime(runtime: number): string {
@@ -52,7 +48,7 @@ export class MovieDetailComponent implements OnInit {
 
   getRating(event: number) {
     this.store.dispatch(setMovieRating({ movieId: this.id, rating: event }));
-    this.store.dispatch(showToast({ message: 'Success! Your rating has been saved', isSuccessful: true }))
+    this.store.dispatch(showToast({ message: 'Success! Your rating has been saved', isSuccessful: true }));
   }
 
 }

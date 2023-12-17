@@ -8,7 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { MoviesEffect } from './store/movies/movie.effect';
-import { movieDetailReducer, movieRatingReducer, popularMoviesReducer, searchedMoviesReducer } from './store/movies/movie.reducer';
+import { MovieDetailReducer, MovieRatingReducer, PopularMoviesReducer, SearchedMoviesReducer } from './store/movies/movie.reducer';
 import { AuthReducer } from './store/authentication/auth.reducer';
 import { AuthEffect } from './store/authentication/auth.effect';
 import { ToastReducer } from './store/toastManager/toast.reducer';
@@ -24,10 +24,10 @@ import { ToastReducer } from './store/toastManager/toast.reducer';
     AppRoutingModule,
     StoreModule.forRoot(
       {
-        popularMovies: popularMoviesReducer,
-        searchedMovies: searchedMoviesReducer,
-        movieDetail: movieDetailReducer,
-        movieRating: movieRatingReducer,
+        popularMovies: PopularMoviesReducer,
+        searchedMovies: SearchedMoviesReducer,
+        movieDetail: MovieDetailReducer,
+        movieRating: MovieRatingReducer,
         email: AuthReducer,
         toastMessage: ToastReducer
       },

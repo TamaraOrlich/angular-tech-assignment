@@ -18,11 +18,11 @@ export class SearchbarComponent {
       debounceTime(300),
       distinctUntilChanged())
       .subscribe(model => {
-        this.store.dispatch(getSearchedMovies({ query: model }));
+        store.dispatch(getSearchedMovies({ query: model }));
       });
   }
 
-  search(ev: any) {
+  search(ev: KeyboardEvent) {
     this.searchTextChanged.next((ev.target as HTMLInputElement).value);
   }
 

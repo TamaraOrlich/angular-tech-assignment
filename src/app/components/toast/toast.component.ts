@@ -11,7 +11,7 @@ export class ToastComponent {
   bannerMessage$: Observable<{ message: string, isSuccessful?: boolean }>;
 
   constructor(private store: Store) {
-    //@ts-ignore
+    //@ts-expect-error
     this.bannerMessage$ = this.store.select('toastMessage');
   }
 

@@ -3,8 +3,8 @@
     <h1 class="text-4xl title">Popular movies</h1>
     <div class="card-container">
         <div *ngFor="let movie of (movies$ | async)?.results" class="cards">
-            <app-card [movie]="movie"></app-card>
+            <app-grid-card [movie]="movie"></app-grid-card>
         </div>
     </div>
-    <button class="button" *ngIf="this.page != (movies$ | async)?.total_pages" (click)="seeMoreMovies()">See more movies</button>
+    <button class="button" *ngIf="this.page !== (movies$ | async)?.total_pages" (click)="seeMoreMovies()">See more movies</button>
 </div>

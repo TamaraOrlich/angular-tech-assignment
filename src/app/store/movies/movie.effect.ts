@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { ApiService } from "../../services/api.service";
 import { getMovieDetail, getPopularMovies, getSearchedMovies, setMovieDetail, setPopularMovies, setSearchedMovies } from "./movies.action";
 import { Observable, map, switchMap, of } from 'rxjs';
-import { catchError, delay } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { MoviesResponseData } from "../../models/movie";
 import { showToast } from "../toastManager/toast.action";
 
@@ -17,18 +17,16 @@ export class MoviesEffect {
   getPopularMovies$ = createEffect(() =>
     this.actions.pipe(
       ofType(getPopularMovies),
-      switchMap((action) => {
-        let popularMovies$: Observable<MoviesResponseData>;
-        popularMovies$ = this.apiService.getPopularMovies(action.page);
-        return popularMovies$.pipe(
+      switchMap((action) =>
+        this.apiService.getPopularMovies(action.page).pipe(
           map((response: MoviesResponseData) =>
             setPopularMovies({ popularMovies: response })
           ),
           catchError((error) => {
-            return of(showToast({ message: error.message }));;
+            return of(showToast({ message: error.message }));
           })
-        );
-      })
+        )
+      )
     )
   );
 
@@ -39,7 +37,7 @@ export class MoviesEffect {
         this.apiService.getSearchedMovies(query).pipe(
           map(response => setSearchedMovies({ searchedMovies: response })),
           catchError((error) => {
-            return of(showToast({ message: error.message }));;
+            return of(showToast({ message: error.message }));
           })
         ),
       )
@@ -53,7 +51,7 @@ export class MoviesEffect {
         this.apiService.getMovieDetail(id).pipe(
           map(response => setMovieDetail({ movieDetail: response })),
           catchError((error) => {
-            return of(showToast({ message: error.message }));;
+            return of(showToast({ message: error.message }));
           })
         ),
       )

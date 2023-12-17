@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getUser } from '../../store/authentication/auth.action';
 import { Observable } from 'rxjs';
@@ -9,7 +9,7 @@ import { UserModel } from '../../models/auth';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   email: string = '';
   password: string = '';
@@ -18,11 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private store: Store,
   ) {
-    //@ts-ignore
-    this.userAuth$ = store.select('email')
-  }
-
-  ngOnInit(): void {
+    //@ts-expect-error
+    this.userAuth$ = store.select('email');
   }
 
   getEmail(ev: string) {
@@ -33,8 +30,9 @@ export class LoginComponent implements OnInit {
     this.password = ev;
   }
 
-  login() {
-    this.store.dispatch(getUser({ email: this.email, password: this.password }))
+  login($event: SubmitEvent) {
+    $event.preventDefault();
+    this.store.dispatch(getUser({ email: this.email, password: this.password }));
   }
 
 }

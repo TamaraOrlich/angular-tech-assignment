@@ -11,6 +11,8 @@ export const setPopularMovies = createAction(
   props<{ popularMovies: MoviesResponseData }>()
 );
 
+export const clearPopularMovies = createAction('[Movies] Clear Popular Movies');
+
 export const getSearchedMovies = createAction(
   '[Movies] Get searched movies',
   props<{ query: string }>()
@@ -31,11 +33,6 @@ export const getMovieDetail = createAction(
 export const setMovieDetail = createAction(
   '[Movie] Set movie detail',
   props<{ movieDetail: Movie }>()
-);
-
-export const getRatedMOvie = createAction(
-  '[Movie] Get rated movie',
-  props<{ movieId: number }>()
 );
 
 export const setMovieRating = createAction(

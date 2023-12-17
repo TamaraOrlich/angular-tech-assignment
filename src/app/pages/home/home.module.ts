@@ -3,9 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { HttpClientModule } from '@angular/common/http';
 import { HeaderModule } from '../../components/header/header.module';
-import { CardModule } from '../../components/card/card.module';
+import { GridCardModule } from '../../components/grid-card/grid-card.module';
 
 
 @NgModule({
@@ -13,7 +12,7 @@ import { CardModule } from '../../components/card/card.module';
   imports: [
     CommonModule,
     HeaderModule,
-    CardModule,
+    GridCardModule,
     HomeRoutingModule
   ]
 })

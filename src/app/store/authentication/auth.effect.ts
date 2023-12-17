@@ -29,7 +29,7 @@ export class AuthEffect {
                 )
             )
         )
-    )
+    );
 
     resetBanner$ = createEffect(() =>
         this.actions.pipe(

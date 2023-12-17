@@ -8,4 +8,4 @@ export const AuthReducer = createReducer<string | null>(
     on(setUser, (state, { email }) => {
         return email;
     })
-)
+);

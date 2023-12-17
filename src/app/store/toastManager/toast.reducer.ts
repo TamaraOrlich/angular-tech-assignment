@@ -11,4 +11,4 @@ export const ToastReducer = createReducer<{ message: string, isSuccessful: boole
     on(resetToast, (state) => {
         return null;
     })
-)
+);

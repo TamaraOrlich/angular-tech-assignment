@@ -6,9 +6,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './input.component.scss'
 })
 export class InputComponent {
-  @Input() type: 'email' | 'password' | 'text' = 'text'
+  @Input() type: 'email' | 'password' | 'text' = 'text';
   @Input() label!: string;
-  @Input() text: string = ''
+  @Input() text!: string;
 
   @Output() textValue = new EventEmitter<string>();
 

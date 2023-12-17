@@ -14,7 +14,7 @@
 <div *ngIf="(movies$ | async) as movies" class="searched-movies">
     <div *ngIf="movies.total_results > 0" class="searched-movies-container">
         <div *ngFor="let movie of movies.results">
-            <app-card [isList]="true" [movie]="movie" style="width: 100%;"></app-card>
+            <app-list-card [movie]="movie" style="width: 100%;"></app-list-card>
         </div>
     </div>
 </div>

@@ -1,9 +1,9 @@
 <app-header></app-header>
 <div class="body">
     <h1 class="text-3xl title">Login to your account</h1>
-    <div class="login">
+    <form (submit)="login($event)" class="login">
         <app-input (textValue)="getEmail($event)" [text]="email" style="width: 100%;" type="email" label="Username"></app-input>
         <app-input (textValue)="getPassword($event)" [text]="password" style="width: 100%;" type="password" label="Password"></app-input>
-        <button (click)="login()" [disabled]="email === '' || password === ''" class="button" type="button">Login</button>
-    </div>
+        <button [disabled]="email === '' || password === ''" class="button" type="submit">Login</button>
+    </form>
 </div>

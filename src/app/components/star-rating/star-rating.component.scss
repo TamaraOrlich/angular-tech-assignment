@@ -5,14 +5,20 @@
         color: white;
         padding-right: 2px;
     }
-    &:hover svg {
-        fill: #eec407;
-        stroke: #eec407;
-        &:hover~svg {
-            fill: transparent;
+    button {
+        background: transparent;
+        outline: none;
+        border: 0px;
+        padding: 0px;
+        &:hover svg {
+            fill: #eec407;
+            stroke: #eec407;
+            &:hover~svg {
+                fill: transparent;
+            }
         }
-    }
-    svg.active {
-        fill: #eec407;
+        svg.active {
+            fill: #eec407;
+        }
     }
 }
